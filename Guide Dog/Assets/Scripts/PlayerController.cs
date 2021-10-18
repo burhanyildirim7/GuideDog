@@ -35,44 +35,82 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerForwardControl()
     {
-       
-        if (humanController.countHuman < humanCountWalk&& humanController.countHuman < humanCountRun)
+
+        if (humanController.countHuman < humanCountWalk && humanController.countHuman < humanCountRun)
         {
             forwardVelocity = humanWalkSpeed;
-            
+            generator.TailWithSettings.TailAnimatorAmount = 1f;
+            generator.TailWithSettings.WavingAxis.y = 0;
+            generator.TailWithSettings.WavingAxis.x = 0;
+            WalkHuman();
+            generator.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, 0, 0), Time.deltaTime * 10);
 
         }
-        else if (humanController.countHuman > humanCountWalk&& humanController.countHuman < humanCountRun)
-        {
-            forwardVelocity = humanRunSpeed;
-            RunHuman();                        
-        
-        }
-        else if(humanController.countHuman > humanCountRun&& humanController.countHuman > humanCountWalk)
+        else if (humanController.countHuman > humanCountWalk && humanController.countHuman < humanCountRun)
         {
             forwardVelocity = humanRunSpeed;
             generator.TailWithSettings.TailAnimatorAmount = 1f;
-            generator.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(50f, 0, 0) , Time.deltaTime * 10);
+            generator.TailWithSettings.WavingAxis.y = 0;
+            generator.TailWithSettings.WavingAxis.x = 0;
+            generator.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, 0, 0), Time.deltaTime * 10);
+            RunHuman();
+
+        }
+        else if (humanController.countHuman > humanCountRun && humanController.countHuman > humanCountWalk)
+        {
+            forwardVelocity = humanRunSpeed;
+            generator.TailWithSettings.TailAnimatorAmount = 1f;
+            generator.TailWithSettings.WavingAxis.y = 1;
+            generator.TailWithSettings.WavingAxis.x = 1;
+            generator.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(50f, 0, 0), Time.deltaTime * 10);
 
             RunHuman();
         }
     }
 
+    private void WalkHuman()
+    {
+        foreach (var human in humanController.centerHumanList)
+        {
+            if (human != null)
+                human.GetComponent<Animator>().SetBool("isRun", false);
+
+        }
+        foreach (var human in humanController.leftHumanList)
+        {
+            if (human != null)
+                human.GetComponent<Animator>().SetBool("isRun", false);
+
+        }
+        foreach (var human in humanController.rightHumanList)
+        {
+            if (human != null)
+                human.GetComponent<Animator>().SetBool("isRun", false);
+
+        }
+    }
+
     private void RunHuman()
     {
-        foreach (var human in humanController.humanInstantiate)
+        foreach (var human in humanController.centerHumanList)
         {
+            if (human != null)
+                human.GetComponent<Animator>().SetBool("isRun", true);
 
-            human.GetComponent<Animator>().SetBool("isRun", true);
+        }
+        foreach (var human in humanController.leftHumanList)
+        {
+            if(human!=null)
+                human.GetComponent<Animator>().SetBool("isRun", true);
+
+        }
+        foreach (var human in humanController.rightHumanList)
+        {
+            if (human != null)
+                human.GetComponent<Animator>().SetBool("isRun", true);
 
         }
 
-        //foreach (var human in humanController.tailSegments)
-        //{
-
-        //    human.GetComponent<Animator>().SetBool("isRun", true);
-
-        //}
     }
 
     private void FixedUpdate()
@@ -182,10 +220,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Obstacle")
+        if (other.gameObject.tag == "Perde")
         {
-            
-          
+
+        
 
         }
     }

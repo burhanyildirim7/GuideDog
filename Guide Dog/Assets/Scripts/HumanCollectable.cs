@@ -18,8 +18,9 @@ public class HumanCollectable : MonoBehaviour
 
             //humanController.CreateSegment();     
 
-            humanController.StartSegment();
-
+            humanController.AddHuman();
+            humanController.sonEklenenInsan = false;
+       
             Destroy(this.gameObject);
 
 

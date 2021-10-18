@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - Human
   - HumanPlayer
+  - Perde
   layers:
   - Default
   - TransparentFX

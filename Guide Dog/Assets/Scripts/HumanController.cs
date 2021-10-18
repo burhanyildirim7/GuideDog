@@ -1,113 +1,189 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HumanController : MonoBehaviour
 {
-    public int countHuman;
-    public Vector3[] kuyruktakiInsan;
     public TailDemo_CuttingController controller;
     public TailDemo_SegmentedTailGenerator tailDemo_SegmentedTailGenerator;
+
+    public List<GameObject> centerHumanList;
+    public List<GameObject> leftHumanList;
+    public List<GameObject> rightHumanList;
+
+    //public List<GameObject> segmentList;
+
     public GameObject prefab;
-    public bool isInstantiate;
 
+    public List<Vector3> humanVectors;
 
-    public List<GameObject> tailSegments;
+    public bool sonEklenenInsan;
 
-    //public GameObject[] humanInstantiate;
-    public List<GameObject> humanInstantiate;
+    public int countHuman;
 
-    public int toplanacakInsanSayisi;
-
-    private void Start()
+    public void Update()
     {
-        tailSegments.Add(tailDemo_SegmentedTailGenerator.tailSegments[0].transform.gameObject);
-        tailSegments.Add(tailDemo_SegmentedTailGenerator.tailSegments[1].transform.gameObject);
+        ClearLists();
+        countHuman = centerHumanList.Count + leftHumanList.Count + rightHumanList.Count;
+    }
+
+    public void AddHuman()
+    {
+
+        if (centerHumanList != null)
+        {
+
+            for (int i = 0; i <= centerHumanList.Count; i++)
+            {
+                //Hepsi boş
+                if (centerHumanList.Count == i && leftHumanList.Count == i && rightHumanList.Count == i && !sonEklenenInsan)
+                {
+                    //SegmentArttır(i);
+                    CreateHumanPrefab(i, humanVectors[0], 0);
+                    sonEklenenInsan = true;
+                }
+                //centerda var, left ve right boş
+                else if (centerHumanList.Count > i && leftHumanList.Count < i+1 && rightHumanList.Count < i+1 && !sonEklenenInsan)
+                {
+                    CreateHumanPrefab(i, humanVectors[1], 1);
+                    sonEklenenInsan = true;
+                }   //center left var, right boş
+                else if (centerHumanList.Count > i && leftHumanList.Count > i && rightHumanList.Count < i+1 && !sonEklenenInsan)
+                {
+                    CreateHumanPrefab(i, humanVectors[2], 2);
+                    sonEklenenInsan = true;
+
+                }   //center right var, left boş
+                else if (centerHumanList.Count > i && rightHumanList.Count > i && leftHumanList.Count < i+1 && !sonEklenenInsan)
+                {
+                    CreateHumanPrefab(i, humanVectors[1], 1);
+                    sonEklenenInsan = true;
+                }   //center left boş, right var
+                else if (centerHumanList.Count < i+1 && leftHumanList.Count < i+1 && rightHumanList.Count > i && !sonEklenenInsan)
+                {
+                    CreateHumanPrefab(i, humanVectors[0], 0);
+                    sonEklenenInsan = true;
+                }   //left var, center right boş
+                else if (leftHumanList.Count > i && centerHumanList.Count <i+ 1 && rightHumanList.Count < i+1 && !sonEklenenInsan)
+                {
+                    CreateHumanPrefab(i, humanVectors[0], 0);
+                    sonEklenenInsan = true;
+                }
+            }
+
+        }
+
+    }
+
+    private void CreateHumanPrefab(int i,Vector3 humanVector,int position)
+    {
+        GameObject human = Instantiate(prefab, humanVector, Quaternion.Euler(0, 0, 0));
+        human.transform.parent = tailDemo_SegmentedTailGenerator.tailSegments[i + 2].transform;
+        human.transform.localPosition = humanVector;
+        human.AddComponent<BoxCollider>();
+
+        human.transform.localRotation = Quaternion.Euler(0, 0, 0);
+     
+
+        if (position == 0)
+        {
+            centerHumanList.Add(human);
+        }else if (position==1)
+        {
+            leftHumanList.Add(human);
+        }
+        else if(position==2)
+        {
+            rightHumanList.Add(human);
+        }   
+
+    }
+
+    public void DeleteHuman(GameObject deleteHuman)
+    {   
+
+        for (int i = 0; i < rightHumanList.Count; i++)
+        {
+            if (deleteHuman == rightHumanList[i])
+            {         
+                for (int j = i; j < rightHumanList.Count; j++)
+                {
+                    rightHumanList[j].transform.parent = null;
+          
+                    Destroy(rightHumanList[j],2f);             
+                }
+
+    
+            }
         
-    }
-
-    private void Update()
-    {
-        //humanInstantiate = GameObject.FindGameObjectsWithTag("HumanPlayer");
-        //humanInstantiate.AddRange(GameObject.FindGameObjectsWithTag("HumanPlayer"));
-    }
-
-    public void TailKaydetme(int index)
-    {                                                           
-         tailSegments.Add(tailDemo_SegmentedTailGenerator.tailSegments[index].transform.gameObject);
-    }
-
-    //public void TailSilme(int index)
-    //{
-    //    tailSegments.Remove(tailDemo_SegmentedTailGenerator.tailSegments[index].transform.gameObject);
-    //}
-
-    public void StartSegment()
-    {
-        countHuman++;
-
-        for (int i = 1; i <= toplanacakInsanSayisi; i = i + 3)
-        {
-            if (i == countHuman)
-            {
-                controller.slider.value++;
-                TailKaydetme(tailSegments.Count);
-       
-            }
         }
-        StartHuman();
-    }
-
-    private void StartHuman()
-    {
-        for (int i = 1; i <= toplanacakInsanSayisi; i++)
+        for (int i = 0; i < leftHumanList.Count; i++)
         {
-            if (i == countHuman)
+            if (deleteHuman == leftHumanList[i])
             {
-
-                GameObject human = Instantiate(prefab, tailSegments[tailSegments.Count-1].transform.position, Quaternion.identity);
+                for (int j = i; j < leftHumanList.Count; j++)
+                {
+                    leftHumanList[j].transform.parent = null;
                
-                human.transform.parent = tailSegments[tailSegments.Count-1].transform;
+                    Destroy(leftHumanList[j],2f);     
+                }
 
-                human.transform.localPosition = kuyruktakiInsan[i-1];
-                                        
             }
-          
+
         }
+        for (int i = 0; i < centerHumanList.Count; i++)
+        {
+            if (deleteHuman == centerHumanList[i])
+            {
+                for (int j = i; j < centerHumanList.Count; j++)
+                {
+                    centerHumanList[j].transform.parent = null;
+             
+                    Destroy(centerHumanList[j],2f);
+                }
+
+            }
+
+        }
+
     }
 
-    //public void DeleteHuman(int azalmaDegeri)
-    //{
-    //    //countHuman = countHuman - azalmaDegeri;
-
-    //    //if (countHuman < 0) countHuman = 0;
-
-    //    //for (int i = humanInstantiate.Length - 1; i >=countHuman ; i--)
-    //    //{
-    //    //    //Debug.Log(i);
-    //    //    Destroy(humanInstantiate[i].gameObject);
-    //    //}
-    //    ////DeleteSegment();
-
-    //}
-
-    //private void DeleteSegment()
-    //{
-    //    for (int i = tailSegments.Count; i >= 1; i = i - 3)
-    //    {
-    //        Debug.Log("counthuman"+countHuman);
-    //        Debug.Log(i);
-    //        //Debug.Log("counthuman"+countHuman);
-    //        if (i <= countHuman|| countHuman == 0)
-    //        {
+  
+    public void ClearLists()
+    {
+        for (int i = 0; i < centerHumanList.Count; i++)
+        {
+            if (centerHumanList[i] == null)
+            {
           
-    //            controller.slider.value--;
-    //            //tailSegments.RemoveAt(i);
-    //            //TailSilme(tailSegments.Count);
-    //        }
+                centerHumanList.RemoveAt(i);
+            }
+        }
+        for (int i = 0; i < leftHumanList.Count; i++)
+        {
+            if (leftHumanList[i] == null)
+            {
+             
+                leftHumanList.RemoveAt(i);
+            }
+        }
+        for (int i = 0; i < rightHumanList.Count; i++)
+        {
+            if (rightHumanList[i] == null)
+            {
+
+            
+                rightHumanList.RemoveAt(i);
+            }
+        }
+
+    }
+  
 
 
-    //    }
-    //}
+
+
 }
+
+

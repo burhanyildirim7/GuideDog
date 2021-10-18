@@ -10,7 +10,7 @@ public class TailDemo_SegmentedTailGenerator : MonoBehaviour
     public GameObject SegmentModel;
 
     [Header("Parameters")]
-    public int SegmentsCount = 10;
+    public int SegmentsCount = 2;
     public Vector3 SegmentSeparation = Vector3.forward;
     public bool DetachForOptimization = false;
 
