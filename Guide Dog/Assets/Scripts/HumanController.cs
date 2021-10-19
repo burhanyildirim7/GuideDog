@@ -231,6 +231,22 @@ public class HumanController : MonoBehaviour
 
     }
 
+
+    public void PlayerDeleteHuman()
+    {
+        if (totalHumanList.Count > 20)
+        {
+            int yuzdeyirmi = Convert.ToInt32( totalHumanList.Count * 0.3);
+            CikarmaIslemi(yuzdeyirmi);
+
+
+        }else if (totalHumanList.Count < 20)
+        {
+            int random = UnityEngine.Random.Range(5, 10);
+            CikarmaIslemi(random);
+        }
+    }
+
 }
 
 
