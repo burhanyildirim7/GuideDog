@@ -77,6 +77,7 @@
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\FBasic Assets\Behaviours\Animations\FBasic_TranslateTransformSpace.cs" />
     <Compile Include="Assets\Hierarchy 2\Runtime\HierarchyFolder.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\FBasic Assets\Behaviours\Physical\FBasic_ProjectileBase.cs" />
+    <Compile Include="Assets\Scripts\Perde.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Animating\Tail Animator\Utilities\FTail_Editor_Skinner.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Animating\Tail Animator\Utilities\Old\FTail_Animator2D.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\FBasic Assets\Behaviours\Utilities\FBasic_AnimatorPlayState.cs" />
@@ -137,7 +138,6 @@
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\Physics\FImp_ColliderData_Capsule.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\FBasic Assets\Behaviours\Animations\FBasic_ObjectVibrate.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Animating\Tail Animator\Demo - Tail Animator V2\Scripts\TailDemo_SkinnedMeshGenerator.cs" />
-    <Compile Include="Assets\Scripts\Singleton.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Animating\Tail Animator\Code\TailAnimator.Extensions.Shaping.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\FBasic Assets\Behaviours\Character Controllers V2\FBasics_RigidbodyMover.cs" />
     <Compile Include="Assets\Scripts\HumanController.cs" />
@@ -197,7 +197,6 @@
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\FBasic Assets\Behaviours\Utilities\FBasic_FadeOutMaterialAndDestroy.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\FBasic Assets\Behaviours\Character Controllers\Extended\FBasic_FheelekFighter.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Animating\Tail Animator\Utilities\Old\FTail_AnimatorUI.cs" />
-    <Compile Include="Assets\Scripts\Perde.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\FImpossible Creations\Plugins - Animating\Tail Animator\ReadMe - Tail Animator.txt" />

@@ -12,7 +12,7 @@ public class HumanController : MonoBehaviour
     public List<GameObject> leftHumanList;
     public List<GameObject> rightHumanList;
 
-    //public List<GameObject> segmentList;
+    public List<GameObject> totalHumanList;
 
     public GameObject prefab;
 
@@ -26,6 +26,7 @@ public class HumanController : MonoBehaviour
     {
         ClearLists();
         countHuman = centerHumanList.Count + leftHumanList.Count + rightHumanList.Count;
+        
     }
 
     public void AddHuman()
@@ -89,13 +90,16 @@ public class HumanController : MonoBehaviour
         if (position == 0)
         {
             centerHumanList.Add(human);
+            totalHumanList.Add(human);
         }else if (position==1)
         {
             leftHumanList.Add(human);
+            totalHumanList.Add(human);
         }
         else if(position==2)
         {
             rightHumanList.Add(human);
+            totalHumanList.Add(human);
         }   
 
     }
@@ -177,12 +181,55 @@ public class HumanController : MonoBehaviour
                 rightHumanList.RemoveAt(i);
             }
         }
+        for (int i = 0; i < totalHumanList.Count; i++)
+        {
+            if (totalHumanList[i] == null)
+            {
+
+
+                totalHumanList.RemoveAt(i);
+            }
+        }
 
     }
-  
 
 
 
+    public void CikarmaIslemi(int cikarilcakSayi)
+    {
+
+        if (totalHumanList != null)
+        {
+
+            for (int i = totalHumanList.Count; 0 <= i; i--)
+            {
+           
+               
+                    if (totalHumanList.Count > cikarilcakSayi)
+                    {
+                        for (int j = totalHumanList.Count; j > (totalHumanList.Count - cikarilcakSayi); j--)
+                        {
+
+                       
+                            Destroy(totalHumanList[j - 1]);
+                        }
+                    }
+               
+                    else if(totalHumanList.Count<cikarilcakSayi)
+                    {
+                        for (int j = 0; j < totalHumanList.Count; j++)
+                        {
+                         
+                            Destroy(totalHumanList[j]);
+                        }
+                    }
+
+        
+            }
+
+        }
+
+    }
 
 }
 

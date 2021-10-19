@@ -10,13 +10,14 @@ public class Perde : MonoBehaviour
     public int carpmaSayisi;
     public int bolmeSayisi;
     public int toplamaSayisi;
+    public int cikarmaSayisi;
 
     private int islemyapilacakSayi;
 
     public bool carpmaİslemi;
     public bool bolmeİslemi;
     public bool toplamaİslemi;
-
+    public bool cikarmaIslemi;
 
     private void Update()
     {
@@ -66,12 +67,10 @@ public class Perde : MonoBehaviour
         
           if(bolmeİslemi)
             {
-              
-
-                 
-                        int bolunecekIndexCenter = humanController.centerHumanList.Count / bolmeSayisi;
-                        int bolunecekIndexLeft = humanController.leftHumanList.Count / bolmeSayisi;
-                        int bolunecekIndexRight = humanController.rightHumanList.Count / bolmeSayisi;
+                            
+                    int bolunecekIndexCenter = humanController.centerHumanList.Count / bolmeSayisi;
+                    int bolunecekIndexLeft = humanController.leftHumanList.Count / bolmeSayisi;
+                    int bolunecekIndexRight = humanController.rightHumanList.Count / bolmeSayisi;
 
                     if (humanController.centerHumanList.Count>0)
                         humanController.DeleteHuman(humanController.centerHumanList[bolunecekIndexCenter]);
@@ -80,18 +79,14 @@ public class Perde : MonoBehaviour
                         humanController.DeleteHuman(humanController.leftHumanList[bolunecekIndexLeft]);
 
                     if (humanController.rightHumanList.Count > 0)
-                        humanController.DeleteHuman(humanController.rightHumanList[bolunecekIndexRight]);
-
-
-
-               
+                        humanController.DeleteHuman(humanController.rightHumanList[bolunecekIndexRight]);     
               
+            }else if (cikarmaIslemi)
+            {
+                humanController.CikarmaIslemi(cikarmaSayisi);
             }
 
         }
     }
-
-
-
 
 }

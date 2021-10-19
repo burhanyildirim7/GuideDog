@@ -5552,6 +5552,7 @@ MonoBehaviour:
   centerHumanList: []
   leftHumanList: []
   rightHumanList: []
+  totalHumanList: []
   prefab: {fileID: 1703587088480204962, guid: 374143557eeb39f4dab24205167a2b25, type: 3}
   humanVectors:
   - {x: 0, y: 0, z: 0}
@@ -9279,7 +9280,7 @@ PrefabInstance:
     - target: {fileID: 7491997836947338027, guid: ab04c346fa778954492688155b9ae9d3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 36.9
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: 7491997836947338027, guid: ab04c346fa778954492688155b9ae9d3,
         type: 3}
@@ -9320,6 +9321,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Perde
+      objectReference: {fileID: 0}
+    - target: {fileID: 7491997836947338030, guid: ab04c346fa778954492688155b9ae9d3,
+        type: 3}
+      propertyPath: "bolme\u0130slemi"
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7491997836947338030, guid: ab04c346fa778954492688155b9ae9d3,
+        type: 3}
+      propertyPath: cikarmaIslemi
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7491997836947338030, guid: ab04c346fa778954492688155b9ae9d3,
+        type: 3}
+      propertyPath: cikarmaSayisi
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7491997836947338030, guid: ab04c346fa778954492688155b9ae9d3,
         type: 3}
