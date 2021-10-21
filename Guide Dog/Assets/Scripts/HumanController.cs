@@ -205,7 +205,7 @@ public class HumanController : MonoBehaviour
             {
            
                
-                    if (totalHumanList.Count > cikarilcakSayi)
+                    if (totalHumanList.Count >= cikarilcakSayi)
                     {
                         for (int j = totalHumanList.Count; j > (totalHumanList.Count - cikarilcakSayi); j--)
                         {

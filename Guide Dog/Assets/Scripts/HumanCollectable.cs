@@ -10,6 +10,11 @@ public class HumanCollectable : MonoBehaviour
   
     public HumanController humanController;
 
+    private void Start()
+    {
+        humanController = GameObject.Find("HumanController").gameObject.GetComponent<HumanController>();
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,6 +28,9 @@ public class HumanCollectable : MonoBehaviour
        
             Destroy(this.gameObject);
 
+            GameManager.instance.AddPoint(10);
+
+      
 
         }
        

@@ -41,7 +41,7 @@ public class Perde : MonoBehaviour
 
     private void Start()
     {
-   
+        humanController = GameObject.Find("HumanController").gameObject.GetComponent<HumanController>();
     }
 
 
@@ -85,6 +85,8 @@ public class Perde : MonoBehaviour
             {
                 humanController.CikarmaIslemi(cikarmaSayisi);
             }
+
+            GameManager.instance.insanVarmi = true;
 
         }
     }

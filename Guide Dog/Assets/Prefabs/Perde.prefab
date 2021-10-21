@@ -130,6 +130,8 @@ MonoBehaviour:
   carpmaSayisi: 0
   bolmeSayisi: 3
   toplamaSayisi: 0
+  cikarmaSayisi: 3
   "carpma\u0130slemi": 0
-  "bolme\u0130slemi": 1
+  "bolme\u0130slemi": 0
   "toplama\u0130slemi": 0
+  cikarmaIslemi: 1

@@ -154,12 +154,14 @@
     <Compile Include="Assets\FImpossible Creations\Shared Tools\GUI Helpers\FGUI_Handles.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Animating\Tail Animator\Code\TailAnimator.PP.Deflection.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\FBasic Assets\Behaviours\Animations\FBasic_SlideObjectTo.cs" />
+    <Compile Include="Assets\Scripts\LevelController.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\IK\FIK_CCDProcessor.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\FBasic Assets\Behaviours\Utilities\FBasic_DestroyAfter.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Animating\Tail Animator\Demo - Tail Animator V2\Scripts\FTail_Demo_MassUpdaterPlusCanvas.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\FBasic Assets\Behaviours\Interactive\FBasic_InteractionAreaBase.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Animating\Tail Animator\Utilities\TailAnimatorWind.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\FBasic Assets\Behaviours\Character Controllers\FBasic_CharacterController.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\Math Helpers\Math\FTransformMethods.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Animating\Tail Animator\Code\TailAnimator.Extensions.IK.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Animating\Tail Animator\Code\TailAnimator.Extensions.Expert.cs" />
@@ -197,6 +199,8 @@
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\FBasic Assets\Behaviours\Utilities\FBasic_FadeOutMaterialAndDestroy.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\FBasic Assets\Behaviours\Character Controllers\Extended\FBasic_FheelekFighter.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Animating\Tail Animator\Utilities\Old\FTail_AnimatorUI.cs" />
+    <Compile Include="Assets\Scripts\FinishLevel.cs" />
+    <Compile Include="Assets\Scripts\BoneCollectable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\FImpossible Creations\Plugins - Animating\Tail Animator\ReadMe - Tail Animator.txt" />

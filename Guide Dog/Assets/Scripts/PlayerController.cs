@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponent<Animator>();
         _velocity = Vector3.zero;
 
+        
+
     }
 
     private void PlayerForwardControl()
@@ -217,15 +219,10 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
-    private void OnTriggerEnter(Collider other)
+    public void PlayerStartPosition()
     {
-        if (other.gameObject.tag == "Perde")
-        {
-
-        
-
-        }
+        transform.localPosition = new Vector3(0,0, -2.55f);
+        _xMovement = 0;
     }
 
 
