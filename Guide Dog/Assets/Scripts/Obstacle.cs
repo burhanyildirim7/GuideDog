@@ -5,14 +5,15 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    public HumanController humanController;
+    private HumanController humanController;
     private bool playerActive;
 
-
+    private GameManager _gameManager;
 
     private void Start()
     {
-        humanController = GameObject.Find("HumanController").gameObject.GetComponent<HumanController>();
+        humanController = GameObject.Find("HumanController").GetComponent<HumanController>();
+        _gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -22,7 +23,13 @@ public class Obstacle : MonoBehaviour
         {
 
             humanController.DeleteHuman(other.gameObject);
-            
+
+            if (humanController.countHuman == 0)
+            {
+                _gameManager.LoseGame();
+            }
+
+
 
         }
         if (other.gameObject.tag == "Player")
@@ -30,10 +37,15 @@ public class Obstacle : MonoBehaviour
             playerActive = true;
             humanController.PlayerDeleteHuman();
             StartCoroutine(PlayerStatus());
-            GameManager.instance.insanVarmi = true;
+
+            if (humanController.countHuman == 0)
+            {
+                _gameManager.LoseGame();
+            }
+
+            // GameManager.instance.insanVarmi = true;
         }
 
-        
 
     }
 

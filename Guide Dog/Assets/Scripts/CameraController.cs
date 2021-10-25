@@ -4,14 +4,28 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform player;
 
-    private Vector3 _target = Vector3.zero;
+    private GameObject Player;
 
-    // Update is called once per frame
+    Vector3 aradakiFark;
+
+
+    void Start()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player");
+        aradakiFark = transform.position - Player.transform.position;
+
+    }
+
+
     void Update()
     {
-        _target = new Vector3(player.position.x, player.position.y + 4, player.position.z - 15);
-        transform.position = Vector3.Lerp(transform.position, _target, 1f);
+      
+            transform.position = Vector3.Lerp(transform.position, new Vector3(Player.transform.position.x, Player.transform.position.y + aradakiFark.y, Player.transform.position.z + aradakiFark.z), Time.deltaTime * 5f);
+      
+       
+
     }
+
+ 
 }

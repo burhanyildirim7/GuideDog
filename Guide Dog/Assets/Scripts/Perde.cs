@@ -86,7 +86,7 @@ public class Perde : MonoBehaviour
                 humanController.CikarmaIslemi(cikarmaSayisi);
             }
 
-            GameManager.instance.insanVarmi = true;
+//            GameManager.instance.insanVarmi = true;
 
         }
     }

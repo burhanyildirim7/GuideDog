@@ -7,20 +7,20 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public Text scoreText;
-    public Text levelText;
-    public Text levelScoreText;
+    [SerializeField] private GameObject _tapToStartScreen;
+    [SerializeField] private GameObject _gameScreen;
+    [SerializeField] private GameObject _winScreen;
+    [SerializeField] private GameObject _loseScreen;
+
+    [SerializeField] private Text _tapToStartScreenElmasText;
+    [SerializeField] private Text _gameScreenElmasText;
+    [SerializeField] private Text _gameScreenLevelText;
+    [SerializeField] private Text _winScreenElmasText;
+    [SerializeField] private Text _loseScreenElmasText;
+
 
     public int score = 0;
     public int levelScore;
-
-
-    public GameObject gameoverScreen;
-
-    public GameObject gameStartScreen;
-
-    public GameObject gameNextLevelScreen;
-    public Button gameNextLevelButton;
 
     public LevelController levelController;
 
@@ -30,37 +30,37 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
 
-    public bool insanVarmi;
+    //public bool insanVarmi;
+
+
+    public static bool _gameActive;
 
     private void Awake()
     {
         instance = this;
-        Time.timeScale = 0.0f;
-        gameoverScreen.SetActive(false);
-        gameNextLevelScreen.SetActive(false);
+       // Time.timeScale = 0.0f;
+       
     }
 
     void Start()
     {
-        SaveGameGet();
 
+        _gameActive = false;
+        _loseScreen.SetActive(false);
+        _winScreen.SetActive(false);
+        _tapToStartScreen.SetActive(true);
 
     }
 
 
     void Update()
     {
-        SaveGameSet();
-        levelScoreText.text = levelScore.ToString();
-        scoreText.text = score.ToString();
-        
+       
+        _gameScreenElmasText.text = levelScore.ToString();
+        _tapToStartScreenElmasText.text = score.ToString();
 
-        if (humanController.countHuman > 0)
-        {
-            insanVarmi = true;
-          
-        }
-        LoseGame();
+        
+       
     }
 
     public void AddPoint(int point)
@@ -71,38 +71,28 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        Time.timeScale = 1.0f;
-        gameStartScreen.SetActive(false);
+        _gameActive = true;
+        _tapToStartScreen.SetActive(false);
+        _gameScreen.SetActive(true);
     }
 
     public void LoseGame() 
     {
-       if(insanVarmi && humanController.countHuman < 1)
-        {
-
-            gameoverScreen.SetActive(true);
-            StopGame();
-            insanVarmi = false;
-        }
-
-
+        _gameScreen.SetActive(false);
+        _loseScreen.SetActive(true);
+        _gameActive = false;
 
     }
 
-    public void StopGame()
-    {
-        Time.timeScale = 0.0f;
-    }
+   
 
     public void RestartGame() 
     {
-
-        gameoverScreen.SetActive(false);
-        levelController.isCreated = false;
-        levelController.RestartGame();
+        levelController.LevelRestart();
+        _loseScreen.SetActive(false);
         playerController.PlayerStartPosition();
-        StopGame();
-        gameStartScreen.SetActive(true);
+        _gameActive = false;
+        _gameScreen.SetActive(true);
 
 
     }
@@ -110,58 +100,23 @@ public class GameManager : MonoBehaviour
     public void NextLevel() //GameNextLevel'deki nextLevel butonu bu methodu çalıştırır.
     {
 
-        StartCoroutine(NextLevelMethod());
-
-    }
-
-    IEnumerator NextLevelMethod()
-    {
-        gameNextLevelButton.interactable = false;
-        score = score + levelScore;
-        yield return new WaitForSecondsRealtime(2);
-        levelController.levelCount++;
-        gameNextLevelScreen.SetActive(false);
-        levelController.isCreated = false;
+        levelController.LevelDegistir();
+        _winScreen.SetActive(false);
         playerController.PlayerStartPosition();
-        gameStartScreen.SetActive(true);
-        StopGame();
-        RandomLevel();
-        gameNextLevelButton.interactable = true;
-    
+        _gameActive = false;
+        _tapToStartScreen.SetActive(true);
+
     }
 
     public void FinishLevel() // FinisLevel bu methodu çağırır.
     {
-        gameNextLevelScreen.SetActive(true);
+        _gameScreen.SetActive(false);
+        _gameActive = false;
+        _winScreen.SetActive(true);
 
 
     }
-    private void SaveGameGet()
-    {
-        PlayerPrefs.DeleteAll();
 
-        score = PlayerPrefs.GetInt("score");
-        levelController.levelCount = PlayerPrefs.GetInt("level");
-        levelController.randomLevel = PlayerPrefs.GetInt("randomlevel");
-    }
-
-    private void SaveGameSet()
-    {
-        PlayerPrefs.SetInt("randomlevel", levelController.randomLevel);
-
-
-
-        PlayerPrefs.SetInt("level", levelController.levelCount);
-        levelText.text = "Level " + (levelController.levelCount + 1).ToString(); //Level yazısı
-   
-        PlayerPrefs.SetInt("score", score);
-        scoreText.text = "$ " + score.ToString();
-    }
-
-    private void RandomLevel()
-    {
-        levelController.randomLevel = UnityEngine.Random.Range(0, levelController.prefabLevels.Count);
-    }
-
+  
    
 }

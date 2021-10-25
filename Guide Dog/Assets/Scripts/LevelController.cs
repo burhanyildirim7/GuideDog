@@ -4,108 +4,109 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
-    [HideInInspector]
-    public int levelCount = 0;
 
-    public List<GameObject> prefabLevels;
+    [SerializeField] private List<GameObject> _leveller = new List<GameObject>();
 
-    private GameObject firstLevel; //İlk oluşturulan prefab 
-    [HideInInspector]
-    public bool isCreated; //Prefab oluşturuluk oluşturulmadığı bilgisi
+    private int _levelNumarasi;
 
-    public int randomLevel; //Randomlevel oluşturmak
+    private GameObject güncelLevel;
 
-    int randomValue; //Restart için random verisini tutuyoruz.
+    private int _levelNumber;
+
+    private int _toplamLevelSayisi;
 
     void Start()
     {
-
-        firstLevel = Instantiate(prefabLevels[0] );
-
-    }
-
-    void Update()
-    {
-        NextLevel();
-
-    }
-
-    public void RestartGame() //Gamamanacerda restart butanu ile bu metad çalışır.
-    {
-
-        for (int i = 0; i < prefabLevels.Count; i++)
+        if (güncelLevel)
+        {
+            Destroy(güncelLevel);
+        }
+        else
         {
 
-            if (levelCount == i && !isCreated)
-            {
-
-                DestroyPrefab();
-                CreatePrefab();
-
-            }
-            if (!isCreated && levelCount >= prefabLevels.Count)
-            {
-
-                CreatePrefabRandomRestart();
-
-            }
         }
-    }
+ 
+        _levelNumarasi = PlayerPrefs.GetInt("LevelNumarası", 0);
+        _levelNumber = PlayerPrefs.GetInt("LevelNumber", 1);
+        _toplamLevelSayisi = _leveller.Count - 1;
 
-    public void NextLevel() //Update fonksiyonu içinde çalışıyor Gamemanager nextlevel
-                            //butonu ile isCreated false gelince method çalışıyor.
-    {
-        for (int i = 1; i < prefabLevels.Count; i++)
+        if (_levelNumber < _toplamLevelSayisi)
         {
-
-            if (levelCount == i && !isCreated && levelCount < prefabLevels.Count + 1)
-            {
-
-                DestroyPrefab();
-
-                CreatePrefab();
-
-            }
-
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarası");
+            güncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
         }
-        if (!isCreated && levelCount >= prefabLevels.Count)
+        else
         {
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarası");
 
-            CreatePrefabRandom();
+            güncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
+        }
+
+
+
+    }
+
+
+    public void LevelDegistir()
+    {
+        Destroy(güncelLevel);
+        _levelNumarasi = PlayerPrefs.GetInt("LevelNumarası");
+        _levelNumber = PlayerPrefs.GetInt("LevelNumber");
+        _toplamLevelSayisi = _leveller.Count - 1;
+
+        if (_levelNumber < _toplamLevelSayisi)
+        {
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarası");
+            _levelNumarasi += 1;
+            _levelNumber++;
+
+            güncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
+            PlayerPrefs.SetInt("LevelNumarası", _levelNumarasi);
+            PlayerPrefs.SetInt("LevelNumber", _levelNumber);
+        }
+        else
+        {
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarası");
+            int _geciciLevelNumarasi = _levelNumarasi;
+
+            _levelNumarasi = Random.Range(0, _toplamLevelSayisi);
+
+            if (_levelNumarasi == _geciciLevelNumarasi)
+            {
+                LevelDegistir();
+            }
+            else
+            {
+                _levelNumber++;
+                güncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
+                PlayerPrefs.SetInt("LevelNumarası", _levelNumarasi);
+                PlayerPrefs.SetInt("LevelNumber", _levelNumber);
+            }
+            //PlayerPrefs.SetInt("GüncelLevelNumarası", _güncelLevelNumarasi);
+
+
 
         }
 
+
     }
 
-    private void CreatePrefab()
+    public void LevelRestart()
     {
-        Instantiate(prefabLevels[levelCount]);
-        isCreated = true;
+        Destroy(güncelLevel);
+        _levelNumarasi = PlayerPrefs.GetInt("LevelNumarası");
+        _toplamLevelSayisi = _leveller.Count - 1;
+
+        if (_levelNumber < _toplamLevelSayisi)
+        {
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarası");
+            güncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
+        }
+        else
+        {
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarası");
+
+            güncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
+        }
     }
-
-    private void DestroyPrefab()
-    {
-        var clone = GameObject.FindGameObjectWithTag("Clone");
-        Destroy(clone);
-    }
-
-    private void CreatePrefabRandom()
-    {
-        DestroyPrefab();
-
-        Instantiate(prefabLevels[randomLevel]);
-        randomValue = randomLevel; //Random'ın referansını CreatePrefabRandomRestart'a yolluyoruz.
-        isCreated = true;
-    }
-
-
-    private void CreatePrefabRandomRestart()
-    {
-        DestroyPrefab();
-
-
-        Instantiate(prefabLevels[randomValue]);
-        isCreated = true;
-    }
-
 }

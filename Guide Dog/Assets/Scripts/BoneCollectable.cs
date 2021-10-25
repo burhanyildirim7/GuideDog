@@ -11,7 +11,7 @@ public class BoneCollectable : MonoBehaviour
 
             
 
-            Destroy(this.gameObject);
+            Destroy(gameObject);
 
             GameManager.instance.AddPoint(1);
 

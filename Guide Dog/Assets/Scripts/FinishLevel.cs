@@ -7,7 +7,11 @@ public class FinishLevel : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GameManager.instance.FinishLevel();
-        GameManager.instance.StopGame();
+        //        GameManager.instance.StopGame();
+
+       
+
+        GameObject.FindGameObjectWithTag("HumanController").GetComponent<HumanController>().DestroyAllHuman();
         
     }
 }

@@ -1,0 +1,38 @@
+﻿<Properties StartupConfiguration="{AE16AA28-944A-59EB-BA2E-AACC5175EE9E}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BoneCollectable.cs">
+    <Files>
+      <File FileName="Assets/Scripts/LevelController.cs" Line="43" Column="10" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="107" Column="26" />
+      <File FileName="Assets/Scripts/HumanCollectable.cs" />
+      <File FileName="Assets/Scripts/Perde.cs" />
+      <File FileName="Assets/Scripts/PlayerController.cs" />
+      <File FileName="Assets/Scripts/Singleton.cs" />
+      <File FileName="Assets/Scripts/FinishLevel.cs" />
+      <File FileName="Assets/Scripts/HumanController.cs" />
+      <File FileName="Assets/Scripts/Obstacle.cs" />
+      <File FileName="Assets/Scripts/SwerveMovement.cs" />
+      <File FileName="Assets/Scripts/CameraController.cs" />
+      <File FileName="Assets/Scripts/BoneCollectable.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Guide Dog" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="BoneCollectable.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="4ab0b4f1-ade0-4ad9-ae89-d558f876b316" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

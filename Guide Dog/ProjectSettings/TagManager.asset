@@ -12,6 +12,9 @@ TagManager:
   - Perde
   - EngelPerde
   - Clone
+  - HumanController
+  - LevelController
+  - GameManager
   layers:
   - Default
   - TransparentFX

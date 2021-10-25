@@ -14,10 +14,10 @@ public class PlayerController : MonoBehaviour
     public HumanController humanController;
 
     public float xSpeed = 10;
-    private float _xMovement;
+//    private float _xMovement;
     private Animator _animator;
 
-    
+    private float _speed;
 
     public int humanCountWalk=15;
     public int humanCountRun = 25;
@@ -35,12 +35,29 @@ public class PlayerController : MonoBehaviour
 
     }
 
+
+    private void FixedUpdate()
+    {
+        if (GameManager._gameActive == true)
+        {
+            PlayerForwardControl();
+            //Run();
+            //InputHandling();
+            // MoveX();
+            //TouchHandling();
+            transform.Translate(Vector3.forward * Time.deltaTime * _speed);
+           // _rigidbody.velocity = _velocity;
+        }
+       
+    }
+
+
     private void PlayerForwardControl()
     {
 
         if (humanController.countHuman < humanCountWalk && humanController.countHuman < humanCountRun)
         {
-            forwardVelocity = humanWalkSpeed;
+            _speed = humanWalkSpeed;
             generator.TailWithSettings.TailAnimatorAmount = 1f;
             generator.TailWithSettings.WavingAxis.y = 0;
             generator.TailWithSettings.WavingAxis.x = 0;
@@ -50,7 +67,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (humanController.countHuman > humanCountWalk && humanController.countHuman < humanCountRun)
         {
-            forwardVelocity = humanRunSpeed;
+            _speed = humanRunSpeed;
             generator.TailWithSettings.TailAnimatorAmount = 1f;
             generator.TailWithSettings.WavingAxis.y = 0;
             generator.TailWithSettings.WavingAxis.x = 0;
@@ -60,7 +77,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (humanController.countHuman > humanCountRun && humanController.countHuman > humanCountWalk)
         {
-            forwardVelocity = humanRunSpeed;
+            _speed = humanRunSpeed;
             generator.TailWithSettings.TailAnimatorAmount = 1f;
             generator.TailWithSettings.WavingAxis.y = 1;
             generator.TailWithSettings.WavingAxis.x = 1;
@@ -115,114 +132,16 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
-    {
-        PlayerForwardControl();
-        Run();
-        InputHandling();
-        MoveX();
-        TouchHandling();
-        _rigidbody.velocity = _velocity;
-    }
-
     private void Run()
     {
 
         _velocity.z = forwardVelocity;
     }
 
-    private void MoveX()
-    {
-        transform.position = Vector3.MoveTowards(transform.position, new Vector3(_xMovement, transform.position.y, transform.position.z), Time.deltaTime * xSpeed);
-    }
-
-
-    void InputHandling()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            if (_xMovement == 0)
-            {
-                _xMovement = -3;
-            }
-            else if (_xMovement == 3)
-            {
-                _xMovement = 0;
-            }
-
-
-        } else if (Input.GetKeyDown(KeyCode.D))
-        {
-            if (_xMovement == 0)
-            {
-                _xMovement = 3;
-            }else if(_xMovement == -3)
-            {
-                _xMovement = 0;
-            }
-        }
-    }
-
-
-    private Touch _sTouch;
-    bool _hasSwiped = false;
-
-    void TouchHandling()
-    {
-        foreach (Touch t in Input.touches)
-        {
-            if(t.phase == TouchPhase.Began)
-            {
-                _sTouch = t;
-            }
-            else if (t.phase ==TouchPhase.Moved && !_hasSwiped)
-            {
-                float Xswipe = _sTouch.position.x - t.position.x;
-                float Yswipe = _sTouch.position.y - t.position.y;
-                float Distance = Mathf.Sqrt((Xswipe * Xswipe)) + Mathf.Sqrt((Yswipe * Yswipe));
-               
-             
-                if (Distance < 5f)
-                {
-                    if (Xswipe < 0)//Right
-                    {
-                        if(_xMovement == 0)
-                        {
-                            _xMovement = 3;
-                        }else if(_xMovement == -3)
-                        {
-                            _xMovement = 0;
-
-                        }
-                    }else if (Xswipe>0)//left
-                    {
-                        if(_xMovement == 0)
-                        {
-                            _xMovement = -3;
-
-                        }else if (_xMovement == 3)
-                        {
-                            _xMovement = 0;
-                        }
-                    }
-                }
-
-                _hasSwiped = true;
-                
-            }else if(t.phase == TouchPhase.Ended)
-            {
-                _sTouch = new Touch();
-                _hasSwiped = false;
-            }
-        }
-        
-    }
-
-
     public void PlayerStartPosition()
     {
-        transform.localPosition = new Vector3(0,0, -2.55f);
-        _xMovement = 0;
+        transform.position = new Vector3(0, 0.5f, 0);
+//        _xMovement = 0;
     }
 
 

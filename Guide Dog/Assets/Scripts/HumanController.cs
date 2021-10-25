@@ -193,6 +193,14 @@ public class HumanController : MonoBehaviour
 
     }
 
+    public void DestroyAllHuman()//Bunu Burhan Yazdı.
+    {
+        foreach (var human in totalHumanList)
+        {
+            Destroy(human);
+
+        }
+    }
 
 
     public void CikarmaIslemi(int cikarilcakSayi)

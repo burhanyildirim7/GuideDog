@@ -12,7 +12,7 @@ public class HumanCollectable : MonoBehaviour
 
     private void Start()
     {
-        humanController = GameObject.Find("HumanController").gameObject.GetComponent<HumanController>();
+        humanController = GameObject.FindGameObjectWithTag("HumanController").gameObject.GetComponent<HumanController>();
     }
 
 
