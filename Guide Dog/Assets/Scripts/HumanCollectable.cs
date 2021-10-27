@@ -28,7 +28,7 @@ public class HumanCollectable : MonoBehaviour
        
             Destroy(this.gameObject);
 
-            GameManager.instance.AddPoint(10);
+            
 
       
 

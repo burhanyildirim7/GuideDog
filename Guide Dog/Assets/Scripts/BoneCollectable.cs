@@ -15,7 +15,7 @@ public class BoneCollectable : MonoBehaviour
 
             GameManager.instance.AddPoint(1);
 
-
+            
 
         }
     }

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -52,9 +52,6 @@
     <UnityBuildTarget>iOS:9</UnityBuildTarget>
     <UnityVersion>2021.1.25f1</UnityVersion>
   </PropertyGroup>
-  <ItemGroup>
-    <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/FImpossible Creations/Plugins - Shared/FBasic Assets/Behaviours/Cameras/FBasic_TPPCameraBehaviour.cs" />
     <Compile Include="Assets/FImpossible Creations/Plugins - Animating/Tail Animator/Demo - Tail Animator V2/Scripts/TailDemo_CompensateMovingPlatform.cs" />
@@ -207,16 +204,52 @@
     <Compile Include="Assets/Scripts/SwerveMovement.cs" />
     <Compile Include="Assets/FImpossible Creations/Plugins - Shared/FBasic Assets/Behaviours/Character Controllers/Extended/FBasic_FheelekFighter.cs" />
     <Compile Include="Assets/FImpossible Creations/Plugins - Animating/Tail Animator/Utilities/Old/FTail_AnimatorUI.cs" />
+    <Compile Include="Assets/ToonPeople/scripts/SPAWNER.cs" />
+    <Compile Include="Assets/ToonPeople/scripts/TPCamera3D.cs" />
+    <Compile Include="Assets/ToonPeople/scripts/FemaleTPPrefabMaker.cs" />
+    <Compile Include="Assets/ToonPeople/scripts/RagDoll.cs" />
+    <Compile Include="Assets/ToonPeople/scripts/MaleTPPrefabMaker.cs" />
+    <Compile Include="Assets/ToonPeople/scripts/DESTROYER.cs" />
+    <Compile Include="Assets/ToonPeople/scripts/playanimation.cs" />
+    <Compile Include="Assets/ToonPeople/scripts/FemaleVRTPPrefabMaker.cs" />
+    <Compile Include="Assets/ToonPeople/scripts/TPCharacterController3D.cs" />
+    <Compile Include="Assets/ToonPeople/scripts/MaleVRTPPrefabMaker.cs" />
+    <Compile Include="Assets/ToonPeople/scripts/poses.cs" />
+    <Compile Include="Assets/Scripts/TemizlikRobotu.cs" />
+    <Compile Include="Assets/Scripts/KatsayilardakiScript.cs" />
+    <Compile Include="Assets/Scripts/PuanObjesiScript.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
+    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets/FImpossible Creations/Plugins - Animating/Tail Animator/ReadMe - Tail Animator.txt" />
+    <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
+    <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
+    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
+    <None Include="Assets/PolyArt/Animals/Dogs/Readme.txt" />
+    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
+    <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
+    <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF.shader" />
+    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
     <None Include="Assets/FImpossible Creations/Plugins - Shared/FBasic Assets/Shaders/FParticle VertexLit Blended.shader" />
+    <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
+    <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
+    <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
     <None Include="Assets/FImpossible Creations/Plugins - Shared/FBasic Assets/Others/S_3DText Shader.shader" />
+    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets/FImpossible Creations/Plugins - Shared/FBasic Assets/Others/mrsmonster.txt" />
     <None Include="Assets/PolyArt/Animals/PolyArt_Farm_Animals/Goats/Readme.txt" />
+    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
+    <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />
     <None Include="Assets/FImpossible Creations/Plugins - Shared/Math Helpers/MathHelpers - ReadMe.txt" />
     <None Include="Assets/FImpossible Creations/Plugins - Shared/FBasic Assets/Shaders/FDebugVertexColor.shader" />
+    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" />
     <None Include="Assets/FImpossible Creations/Plugins - Shared/FBasic Assets/Read Me - FBasicAssets.txt" />
+    <None Include="Assets/TextMesh Pro/Shaders/TMP_Sprite.shader" />
     <None Include="Assets/FImpossible Creations/Directories Description.txt" />
   </ItemGroup>
   <ItemGroup>

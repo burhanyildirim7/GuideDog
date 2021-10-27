@@ -25,19 +25,22 @@ public class LevelController : MonoBehaviour
         {
 
         }
- 
-        _levelNumarasi = PlayerPrefs.GetInt("LevelNumarası", 0);
+
+       // PlayerPrefs.SetInt("LevelNumarası", 0);
+       // PlayerPrefs.SetInt("LevelNumber", 1);
+
+        _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi", 0);
         _levelNumber = PlayerPrefs.GetInt("LevelNumber", 1);
         _toplamLevelSayisi = _leveller.Count - 1;
 
         if (_levelNumber < _toplamLevelSayisi)
         {
-            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarası");
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
             güncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
         }
         else
         {
-            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarası");
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
 
             güncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
         }
@@ -50,23 +53,23 @@ public class LevelController : MonoBehaviour
     public void LevelDegistir()
     {
         Destroy(güncelLevel);
-        _levelNumarasi = PlayerPrefs.GetInt("LevelNumarası");
+        _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
         _levelNumber = PlayerPrefs.GetInt("LevelNumber");
         _toplamLevelSayisi = _leveller.Count - 1;
 
         if (_levelNumber < _toplamLevelSayisi)
         {
-            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarası");
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
             _levelNumarasi += 1;
             _levelNumber++;
 
             güncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
-            PlayerPrefs.SetInt("LevelNumarası", _levelNumarasi);
+            PlayerPrefs.SetInt("LevelNumarasi", _levelNumarasi);
             PlayerPrefs.SetInt("LevelNumber", _levelNumber);
         }
         else
         {
-            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarası");
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
             int _geciciLevelNumarasi = _levelNumarasi;
 
             _levelNumarasi = Random.Range(0, _toplamLevelSayisi);
@@ -79,7 +82,7 @@ public class LevelController : MonoBehaviour
             {
                 _levelNumber++;
                 güncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
-                PlayerPrefs.SetInt("LevelNumarası", _levelNumarasi);
+                PlayerPrefs.SetInt("LevelNumarasi", _levelNumarasi);
                 PlayerPrefs.SetInt("LevelNumber", _levelNumber);
             }
             //PlayerPrefs.SetInt("GüncelLevelNumarası", _güncelLevelNumarasi);
@@ -94,17 +97,17 @@ public class LevelController : MonoBehaviour
     public void LevelRestart()
     {
         Destroy(güncelLevel);
-        _levelNumarasi = PlayerPrefs.GetInt("LevelNumarası");
+        _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
         _toplamLevelSayisi = _leveller.Count - 1;
 
         if (_levelNumber < _toplamLevelSayisi)
         {
-            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarası");
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
             güncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
         }
         else
         {
-            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarası");
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
 
             güncelLevel = Instantiate(_leveller[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
         }

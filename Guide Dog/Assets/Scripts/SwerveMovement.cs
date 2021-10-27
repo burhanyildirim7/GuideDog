@@ -24,7 +24,7 @@ public class SwerveMovement : MonoBehaviour
     private void Update()
     {
 
-        if (GameManager._gameActive == true)
+        if (GameManager._gameActive == true && GameManager._oyunSonu == false)
         {
             centerPosition = new Vector3(0, transform.position.y, transform.position.z);
 
