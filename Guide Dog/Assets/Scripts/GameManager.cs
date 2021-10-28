@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
 
     public static bool _oyunSonuSevinme;
 
+    private int _oyunBasladi;
+
     private void Awake()
     {
         instance = this;
@@ -52,6 +54,21 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+
+        _levelNumber = PlayerPrefs.GetInt("LevelNumber");
+
+        _oyunBasladi = PlayerPrefs.GetInt("OyunBasladi");
+        if (_oyunBasladi == 0)
+        {
+            PlayerPrefs.SetInt("LevelNumber", 1);
+            _oyunBasladi = 1;
+            PlayerPrefs.SetInt("OyunBasladi", _oyunBasladi);
+        }
+        else
+        {
+
+        }
+
         _toplamElmasSayisi = PlayerPrefs.GetInt("ToplamElmasSayisi");
         _levelElmasSayisi = 0;
         _gameActive = false;
