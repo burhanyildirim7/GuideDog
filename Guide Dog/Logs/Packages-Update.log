@@ -50,3 +50,17 @@ The following packages were added:
   com.unity.ext.nunit@1.0.0
   com.unity.package-manager-ui@2.2.0
   com.unity.purchasing@2.0.6
+
+=== Tue Nov  2 12:51:57 2021
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.ads from version 2.0.8 to 3.7.5
+  com.unity.analytics from version 3.2.2 to 3.6.11
+  com.unity.collab-proxy from version 1.11.2 to 1.13.5
+  com.unity.ext.nunit from version 1.0.0 to 1.0.6
+  com.unity.purchasing from version 2.0.6 to 4.0.3
+The following packages were removed:
+  com.unity.package-manager-ui@2.2.0
