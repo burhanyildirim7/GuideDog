@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +13,7 @@ public class HumanController : MonoBehaviour
 
     public List<GameObject> totalHumanList;
 
-    public GameObject prefab;
+    public List<GameObject> _prefabs = new List<GameObject>();
 
     public List<Vector3> humanVectors;
 
@@ -79,7 +78,8 @@ public class HumanController : MonoBehaviour
 
     private void CreateHumanPrefab(int i,Vector3 humanVector,int position)
     {
-        GameObject human = Instantiate(prefab, humanVector, Quaternion.Euler(0, 0, 0));
+        int randomsayi = Random.Range(0, _prefabs.Count);
+        GameObject human = Instantiate(_prefabs[randomsayi], humanVector, Quaternion.Euler(0, 0, 0));
         human.transform.parent = tailDemo_SegmentedTailGenerator.tailSegments[i + 2].transform;
         human.transform.localPosition = humanVector;
         human.AddComponent<BoxCollider>();
@@ -244,7 +244,7 @@ public class HumanController : MonoBehaviour
     {
         if (totalHumanList.Count > 20)
         {
-            int yuzdeyirmi = Convert.ToInt32( totalHumanList.Count * 0.3);
+            int yuzdeyirmi = (int)(totalHumanList.Count * 0.3);
             CikarmaIslemi(yuzdeyirmi);
 
 

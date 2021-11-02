@@ -22,14 +22,16 @@ public class CameraController : MonoBehaviour
     {
         if (GameManager._oyunSonuSevinme == false)
         {
+
             if (GameManager._oyunSonu == false)
             {
                 transform.position = Vector3.Lerp(transform.position, new Vector3(Player.transform.position.x, Player.transform.position.y + aradakiFark.y, Player.transform.position.z + aradakiFark.z), Time.deltaTime * 5f);
             }
             else
             {
-                transform.position = Vector3.Lerp(transform.position, new Vector3(5, Player.transform.position.y + aradakiFark.y, Player.transform.position.z + aradakiFark.z), Time.deltaTime * 3f);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(30, -25, transform.rotation.z), 15f * Time.deltaTime);
+                transform.position = Vector3.Lerp(transform.position, new Vector3(Player.transform.position.x, Player.transform.position.y + aradakiFark.y, Player.transform.position.z + aradakiFark.z), Time.deltaTime * 5f);
+                // transform.position = Vector3.Lerp(transform.position, new Vector3(5, Player.transform.position.y + aradakiFark.y, Player.transform.position.z + aradakiFark.z), Time.deltaTime * 3f);
+                // transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(30, -25, transform.rotation.z), 15f * Time.deltaTime);
             }
         }else
         {

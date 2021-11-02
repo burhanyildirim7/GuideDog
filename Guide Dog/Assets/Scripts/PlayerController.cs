@@ -20,10 +20,10 @@ public class PlayerController : MonoBehaviour
     private float _speed;
 
     public int humanCountWalk=15;
-    public int humanCountRun = 25;
+    public int humanCountRun = 30;
 
-    public int humanWalkSpeed = 4;
-    public int humanRunSpeed = 6;
+    public int humanWalkSpeed = 5;
+    public int humanRunSpeed = 7;
 
     void Start()
     {
@@ -54,39 +54,49 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerForwardControl()
     {
-
-        if (humanController.countHuman < humanCountWalk && humanController.countHuman < humanCountRun)
+        if (GameManager._oyunSonu == false)
         {
-            _speed = humanWalkSpeed;
-            generator.TailWithSettings.TailAnimatorAmount = 1f;
-            generator.TailWithSettings.WavingAxis.y = 0;
-            generator.TailWithSettings.WavingAxis.x = 0;
-            DogWalk();
-            WalkHuman();
-            generator.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, 0, 0), Time.deltaTime * 10);
+            if (humanController.countHuman < humanCountWalk && humanController.countHuman < humanCountRun)
+            {
+                _speed = humanWalkSpeed;
+                generator.TailWithSettings.TailAnimatorAmount = 1f;
+                generator.TailWithSettings.WavingAxis.y = 0;
+                generator.TailWithSettings.WavingAxis.x = 0;
+                DogWalk();
+                WalkHuman();
+                generator.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, 0, 0), Time.deltaTime * 10);
 
+            }
+            else if (humanController.countHuman > humanCountWalk && humanController.countHuman < humanCountRun)
+            {
+                _speed = humanRunSpeed;
+                generator.TailWithSettings.TailAnimatorAmount = 1f;
+                generator.TailWithSettings.WavingAxis.y = 0;
+                generator.TailWithSettings.WavingAxis.x = 0;
+                generator.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, 0, 0), Time.deltaTime * 10);
+                DogRun();
+                RunHuman();
+
+            }
+            else if (humanController.countHuman > humanCountRun && humanController.countHuman > humanCountWalk)
+            {
+                _speed = humanRunSpeed;
+                generator.TailWithSettings.TailAnimatorAmount = 1f;
+                generator.TailWithSettings.WavingAxis.y = 0;// 1 di
+                generator.TailWithSettings.WavingAxis.x = 0;// 1 di
+                generator.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, 0, 0), Time.deltaTime * 10);// x 50ydi
+                DogRun();
+                RunHuman(); // bu yoktu
+                //FlyHuman(); // bu açıktı
+            }
         }
-        else if (humanController.countHuman > humanCountWalk && humanController.countHuman < humanCountRun)
+        else
         {
-            _speed = humanRunSpeed;
-            generator.TailWithSettings.TailAnimatorAmount = 1f;
-            generator.TailWithSettings.WavingAxis.y = 0;
-            generator.TailWithSettings.WavingAxis.x = 0;
-            generator.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, 0, 0), Time.deltaTime * 10);
+            _speed = 7;
             DogRun();
             RunHuman();
-
         }
-        else if (humanController.countHuman > humanCountRun && humanController.countHuman > humanCountWalk)
-        {
-            _speed = humanRunSpeed;
-            generator.TailWithSettings.TailAnimatorAmount = 1f;
-            generator.TailWithSettings.WavingAxis.y = 1;
-            generator.TailWithSettings.WavingAxis.x = 1;
-            generator.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(50f, 0, 0), Time.deltaTime * 10);
-            DogRun();
-            FlyHuman();
-        }
+        
     }
 
     private void WalkHuman()
