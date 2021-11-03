@@ -914,8 +914,6 @@ GameObject:
   m_Component:
   - component: {fileID: 918070170641056032}
   - component: {fileID: 918070170641056039}
-  - component: {fileID: 3343005679537157804}
-  - component: {fileID: 6855848212224912077}
   m_Layer: 0
   m_Name: AmcaCollectable1
   m_TagString: Untagged
@@ -963,32 +961,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3343005679537157804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 918070170641056038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a2c4b2ea47192248b6456e7a092e86c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  humanController: {fileID: 0}
---- !u!65 &6855848212224912077
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 918070170641056038}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 1.5, z: 0.5}
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &918070170665110788
 GameObject:
   m_ObjectHideFlags: 0

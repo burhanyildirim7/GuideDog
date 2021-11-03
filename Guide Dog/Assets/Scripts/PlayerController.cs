@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager._gameActive == true)
         {
-            PlayerForwardControl();
+            
             //Run();
             //InputHandling();
             // MoveX();
@@ -49,6 +49,14 @@ public class PlayerController : MonoBehaviour
            // _rigidbody.velocity = _velocity;
         }
        
+    }
+    private void Update()
+    {
+        if (GameManager._gameActive == true)
+        {
+            PlayerForwardControl();
+        }
+
     }
 
 

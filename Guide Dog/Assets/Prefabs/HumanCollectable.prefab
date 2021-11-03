@@ -180,7 +180,7 @@ PrefabInstance:
     - target: {fileID: 918070170641056038, guid: 84fed5874ca3d486ea9a628281f1d735,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84fed5874ca3d486ea9a628281f1d735, type: 3}
@@ -257,11 +257,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmcaCollectable2
       objectReference: {fileID: 0}
-    - target: {fileID: 3421880980291262578, guid: 781cbc26df3034bb9ad25e38392b4d18,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 781cbc26df3034bb9ad25e38392b4d18, type: 3}
 --- !u!4 &1007908607762194717 stripped
@@ -281,11 +276,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TeyzeCollectable2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7393695295258124705, guid: 59dd973217f634698b85916c26f2591a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7393695295258124716, guid: 59dd973217f634698b85916c26f2591a,
         type: 3}
@@ -362,11 +352,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TeyzeCollactable4
       objectReference: {fileID: 0}
-    - target: {fileID: 5784740562701667109, guid: 9933e9cb6dd4d49ce823538912930b95,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5784740562701667114, guid: 9933e9cb6dd4d49ce823538912930b95,
         type: 3}
       propertyPath: m_RootOrder
@@ -442,11 +427,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TeyzeCollectable3
       objectReference: {fileID: 0}
-    - target: {fileID: 414138950406565955, guid: 447adaf4cba3942b6afc563488bb373e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 414138950406565958, guid: 447adaf4cba3942b6afc563488bb373e,
         type: 3}
       propertyPath: m_RootOrder
@@ -521,11 +501,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AmcaCollectable4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4746716204969016961, guid: d15a882ac055c437a8060dd14597f530,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4746716204969016963, guid: d15a882ac055c437a8060dd14597f530,
         type: 3}
@@ -657,11 +632,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TeyzeCollectable1
       objectReference: {fileID: 0}
-    - target: {fileID: 4916661887989084060, guid: 7dc6013497226449591a5a9de446c904,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dc6013497226449591a5a9de446c904, type: 3}
 --- !u!4 &1710978612925503407 stripped
@@ -736,11 +706,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AmcaCollectable3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6097281852134914276, guid: 411d1412cb1024a66855979729f9b613,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 411d1412cb1024a66855979729f9b613, type: 3}

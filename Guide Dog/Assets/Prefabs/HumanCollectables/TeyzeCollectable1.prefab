@@ -136,15 +136,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4916661887989084057}
   - component: {fileID: 4916661887989084058}
-  - component: {fileID: 8591774177553722794}
-  - component: {fileID: 1702371571685909311}
   m_Layer: 0
   m_Name: TeyzeCollectable1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4916661887989084057
 Transform:
   m_ObjectHideFlags: 0
@@ -185,32 +183,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8591774177553722794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4916661887989084060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a2c4b2ea47192248b6456e7a092e86c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  humanController: {fileID: 0}
---- !u!65 &1702371571685909311
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4916661887989084060}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 1.5, z: 0.5}
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &4916661888198479363
 GameObject:
   m_ObjectHideFlags: 0
