@@ -4,148 +4,69 @@ using UnityEngine;
 
 public class HumanController : MonoBehaviour
 {
-    public TailDemo_CuttingController controller;
-    public TailDemo_SegmentedTailGenerator tailDemo_SegmentedTailGenerator;
+    // public TailDemo_CuttingController controller;
+    // public TailDemo_SegmentedTailGenerator tailDemo_SegmentedTailGenerator;
 
-    public List<GameObject> centerHumanList;
-    public List<GameObject> leftHumanList;
-    public List<GameObject> rightHumanList;
+    public List<GameObject> _humanList;
 
-    public List<GameObject> totalHumanList;
+    [SerializeField] private GameObject _humanSpawnPoint;
+
+    // public List<GameObject> leftHumanList;
+    // public List<GameObject> rightHumanList;
+
+    // public List<GameObject> totalHumanList;
 
     public List<GameObject> _prefabs = new List<GameObject>();
 
-    public List<Vector3> humanVectors;
+    //public List<Vector3> humanVectors;
 
-    public bool sonEklenenInsan;
+    //public bool sonEklenenInsan;
 
     public int countHuman;
 
     public void Update()
     {
         ClearLists();
-        countHuman = centerHumanList.Count + leftHumanList.Count + rightHumanList.Count;
-        
+        countHuman = _humanList.Count;
+
     }
 
     public void AddHuman()
     {
 
-        if (centerHumanList != null)
-        {
-
-            for (int i = 0; i <= centerHumanList.Count; i++)
-            {
-                //Hepsi boş
-                if (centerHumanList.Count == i && leftHumanList.Count == i && rightHumanList.Count == i && !sonEklenenInsan)
-                {
-                    //SegmentArttır(i);
-                    CreateHumanPrefab(i, humanVectors[0], 0);
-                    sonEklenenInsan = true;
-                }
-                //centerda var, left ve right boş
-                else if (centerHumanList.Count > i && leftHumanList.Count < i+1 && rightHumanList.Count < i+1 && !sonEklenenInsan)
-                {
-                    CreateHumanPrefab(i, humanVectors[1], 1);
-                    sonEklenenInsan = true;
-                }   //center left var, right boş
-                else if (centerHumanList.Count > i && leftHumanList.Count > i && rightHumanList.Count < i+1 && !sonEklenenInsan)
-                {
-                    CreateHumanPrefab(i, humanVectors[2], 2);
-                    sonEklenenInsan = true;
-
-                }   //center right var, left boş
-                else if (centerHumanList.Count > i && rightHumanList.Count > i && leftHumanList.Count < i+1 && !sonEklenenInsan)
-                {
-                    CreateHumanPrefab(i, humanVectors[1], 1);
-                    sonEklenenInsan = true;
-                }   //center left boş, right var
-                else if (centerHumanList.Count < i+1 && leftHumanList.Count < i+1 && rightHumanList.Count > i && !sonEklenenInsan)
-                {
-                    CreateHumanPrefab(i, humanVectors[0], 0);
-                    sonEklenenInsan = true;
-                }   //left var, center right boş
-                else if (leftHumanList.Count > i && centerHumanList.Count <i+ 1 && rightHumanList.Count < i+1 && !sonEklenenInsan)
-                {
-                    CreateHumanPrefab(i, humanVectors[0], 0);
-                    sonEklenenInsan = true;
-                }
-            }
-
-        }
-
+        CreateHumanPrefab();
     }
 
-    private void CreateHumanPrefab(int i,Vector3 humanVector,int position)
+    private void CreateHumanPrefab()
     {
         int randomsayi = Random.Range(0, _prefabs.Count);
-        GameObject human = Instantiate(_prefabs[randomsayi], humanVector, Quaternion.Euler(0, 0, 0));
-        human.transform.parent = tailDemo_SegmentedTailGenerator.tailSegments[i + 2].transform;
-        human.transform.localPosition = humanVector;
+        GameObject human = Instantiate(_prefabs[randomsayi], _humanSpawnPoint.transform.position, Quaternion.Euler(0, 0, 0));
+
+
         human.AddComponent<BoxCollider>();
 
         human.transform.localRotation = Quaternion.Euler(0, 0, 0);
-     
 
-        if (position == 0)
-        {
-            centerHumanList.Add(human);
-            totalHumanList.Add(human);
-        }else if (position==1)
-        {
-            leftHumanList.Add(human);
-            totalHumanList.Add(human);
-        }
-        else if(position==2)
-        {
-            rightHumanList.Add(human);
-            totalHumanList.Add(human);
-        }   
+
+        _humanList.Add(human);
 
     }
 
     public void DeleteHuman(GameObject deleteHuman)
-    {   
+    {
 
-        for (int i = 0; i < rightHumanList.Count; i++)
-        {
-            if (deleteHuman == rightHumanList[i])
-            {         
-                for (int j = i; j < rightHumanList.Count; j++)
-                {
-                    rightHumanList[j].transform.parent = null;
-          
-                    Destroy(rightHumanList[j],2f);             
-                }
 
-    
-            }
-        
-        }
-        for (int i = 0; i < leftHumanList.Count; i++)
+        for (int i = 0; i < _humanList.Count; i++)
         {
-            if (deleteHuman == leftHumanList[i])
+            if (deleteHuman == _humanList[i])
             {
-                for (int j = i; j < leftHumanList.Count; j++)
-                {
-                    leftHumanList[j].transform.parent = null;
-               
-                    Destroy(leftHumanList[j],2f);     
-                }
 
-            }
+                //_humanList[j].transform.parent = null;
 
-        }
-        for (int i = 0; i < centerHumanList.Count; i++)
-        {
-            if (deleteHuman == centerHumanList[i])
-            {
-                for (int j = i; j < centerHumanList.Count; j++)
-                {
-                    centerHumanList[j].transform.parent = null;
-             
-                    Destroy(centerHumanList[j],2f);
-                }
+                // _humanList.RemoveAt(j);
+
+                Destroy(_humanList[i]);
+
 
             }
 
@@ -153,41 +74,15 @@ public class HumanController : MonoBehaviour
 
     }
 
-  
+
     public void ClearLists()
     {
-        for (int i = 0; i < centerHumanList.Count; i++)
-        {
-            if (centerHumanList[i] == null)
-            {
-          
-                centerHumanList.RemoveAt(i);
-            }
-        }
-        for (int i = 0; i < leftHumanList.Count; i++)
-        {
-            if (leftHumanList[i] == null)
-            {
-             
-                leftHumanList.RemoveAt(i);
-            }
-        }
-        for (int i = 0; i < rightHumanList.Count; i++)
-        {
-            if (rightHumanList[i] == null)
-            {
 
-            
-                rightHumanList.RemoveAt(i);
-            }
-        }
-        for (int i = 0; i < totalHumanList.Count; i++)
+        for (int i = 0; i < _humanList.Count; i++)
         {
-            if (totalHumanList[i] == null)
+            if (_humanList[i] == null)
             {
-
-
-                totalHumanList.RemoveAt(i);
+                _humanList.RemoveAt(i);
             }
         }
 
@@ -195,7 +90,7 @@ public class HumanController : MonoBehaviour
 
     public void DestroyAllHuman()//Bunu Burhan Yazdı.
     {
-        foreach (var human in totalHumanList)
+        foreach (var human in _humanList)
         {
             Destroy(human);
 
@@ -206,33 +101,33 @@ public class HumanController : MonoBehaviour
     public void CikarmaIslemi(int cikarilcakSayi)
     {
 
-        if (totalHumanList != null)
+        if (_humanList != null)
         {
 
-            for (int i = totalHumanList.Count; 0 <= i; i--)
+            for (int i = _humanList.Count; 0 <= i; i--)
             {
-           
-               
-                    if (totalHumanList.Count >= cikarilcakSayi)
-                    {
-                        for (int j = totalHumanList.Count; j > (totalHumanList.Count - cikarilcakSayi); j--)
-                        {
 
-                       
-                            Destroy(totalHumanList[j - 1]);
-                        }
-                    }
-               
-                    else if(totalHumanList.Count<cikarilcakSayi)
-                    {
-                        for (int j = 0; j < totalHumanList.Count; j++)
-                        {
-                         
-                            Destroy(totalHumanList[j]);
-                        }
-                    }
 
-        
+                if (_humanList.Count >= cikarilcakSayi)
+                {
+                    for (int j = _humanList.Count; j > (_humanList.Count - cikarilcakSayi); j--)
+                    {
+
+
+                        Destroy(_humanList[j - 1]);
+                    }
+                }
+
+                else if (_humanList.Count < cikarilcakSayi)
+                {
+                    for (int j = 0; j < _humanList.Count; j++)
+                    {
+
+                        Destroy(_humanList[j]);
+                    }
+                }
+
+
             }
 
         }
@@ -242,13 +137,14 @@ public class HumanController : MonoBehaviour
 
     public void PlayerDeleteHuman()
     {
-        if (totalHumanList.Count > 20)
+        if (_humanList.Count > 20)
         {
-            int yuzdeyirmi = (int)(totalHumanList.Count * 0.3);
+            int yuzdeyirmi = (int)(_humanList.Count * 0.3);
             CikarmaIslemi(yuzdeyirmi);
 
 
-        }else if (totalHumanList.Count < 20)
+        }
+        else if (_humanList.Count < 20)
         {
             int random = UnityEngine.Random.Range(5, 10);
             CikarmaIslemi(random);

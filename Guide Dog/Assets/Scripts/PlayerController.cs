@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public TailDemo_SegmentedTailGenerator generator;
+   // public TailDemo_SegmentedTailGenerator generator;
 
     [SerializeField]
     public float forwardVelocity = 3;
@@ -14,12 +14,12 @@ public class PlayerController : MonoBehaviour
     public HumanController humanController;
 
     public float xSpeed = 10;
-//    private float _xMovement;
+    //    private float _xMovement;
     private Animator _animator;
 
     private float _speed;
 
-    public int humanCountWalk=15;
+    public int humanCountWalk = 15;
     public int humanCountRun = 30;
 
     public int humanWalkSpeed = 5;
@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponent<Animator>();
         _velocity = Vector3.zero;
 
-        
+
 
     }
 
@@ -40,15 +40,15 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager._gameActive == true)
         {
-            
+
             //Run();
             //InputHandling();
             // MoveX();
             //TouchHandling();
             transform.Translate(Vector3.forward * Time.deltaTime * _speed);
-           // _rigidbody.velocity = _velocity;
+            // _rigidbody.velocity = _velocity;
         }
-       
+
     }
     private void Update()
     {
@@ -67,21 +67,13 @@ public class PlayerController : MonoBehaviour
             if (humanController.countHuman < humanCountWalk && humanController.countHuman < humanCountRun)
             {
                 _speed = humanWalkSpeed;
-                generator.TailWithSettings.TailAnimatorAmount = 1f;
-                generator.TailWithSettings.WavingAxis.y = 0;
-                generator.TailWithSettings.WavingAxis.x = 0;
                 DogWalk();
                 WalkHuman();
-                generator.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, 0, 0), Time.deltaTime * 10);
 
             }
             else if (humanController.countHuman > humanCountWalk && humanController.countHuman < humanCountRun)
             {
                 _speed = humanRunSpeed;
-                generator.TailWithSettings.TailAnimatorAmount = 1f;
-                generator.TailWithSettings.WavingAxis.y = 0;
-                generator.TailWithSettings.WavingAxis.x = 0;
-                generator.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, 0, 0), Time.deltaTime * 10);
                 DogRun();
                 RunHuman();
 
@@ -89,10 +81,6 @@ public class PlayerController : MonoBehaviour
             else if (humanController.countHuman > humanCountRun && humanController.countHuman > humanCountWalk)
             {
                 _speed = humanRunSpeed;
-                generator.TailWithSettings.TailAnimatorAmount = 1f;
-                generator.TailWithSettings.WavingAxis.y = 0;// 1 di
-                generator.TailWithSettings.WavingAxis.x = 0;// 1 di
-                generator.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, 0, 0), Time.deltaTime * 10);// x 50ydi
                 DogRun();
                 RunHuman(); // bu yoktu
                 //FlyHuman(); // bu açıktı
@@ -104,32 +92,13 @@ public class PlayerController : MonoBehaviour
             DogRun();
             RunHuman();
         }
-        
+
     }
 
     private void WalkHuman()
     {
-        foreach (var human in humanController.centerHumanList)
-        {
-            if (human != null)
-            {
-                human.GetComponent<Animator>().SetBool("isFly", false);
-                human.GetComponent<Animator>().SetBool("isRun", false);
-                human.GetComponent<Animator>().SetBool("isWalk", true);
-            }
 
-        }
-        foreach (var human in humanController.leftHumanList)
-        {
-            if (human != null)
-            {
-                human.GetComponent<Animator>().SetBool("isFly", false);
-                human.GetComponent<Animator>().SetBool("isRun", false);
-                human.GetComponent<Animator>().SetBool("isWalk", true);
-            }
-
-        }
-        foreach (var human in humanController.rightHumanList)
+        foreach (var human in humanController._humanList)
         {
             if (human != null)
             {
@@ -143,28 +112,8 @@ public class PlayerController : MonoBehaviour
 
     private void RunHuman()
     {
-        foreach (var human in humanController.centerHumanList)
-        {
-            if (human != null)
-            {
-                human.GetComponent<Animator>().SetBool("isFly", false);
-                human.GetComponent<Animator>().SetBool("isWalk", false);
-                human.GetComponent<Animator>().SetBool("isRun", true);
-            }
-                
 
-        }
-        foreach (var human in humanController.leftHumanList)
-        {
-            if (human != null)
-            {
-                human.GetComponent<Animator>().SetBool("isFly", false);
-                human.GetComponent<Animator>().SetBool("isWalk", false);
-                human.GetComponent<Animator>().SetBool("isRun", true);
-            }
-
-        }
-        foreach (var human in humanController.rightHumanList)
+        foreach (var human in humanController._humanList)
         {
             if (human != null)
             {
@@ -179,27 +128,8 @@ public class PlayerController : MonoBehaviour
 
     private void FlyHuman()
     {
-        foreach (var human in humanController.centerHumanList)
-        {
-            if (human != null)
-            {
-                human.GetComponent<Animator>().SetBool("isWalk", false);
-                human.GetComponent<Animator>().SetBool("isRun", false);
-                human.GetComponent<Animator>().SetBool("isFly", true);
-            }
 
-        }
-        foreach (var human in humanController.leftHumanList)
-        {
-            if (human != null)
-            {
-                human.GetComponent<Animator>().SetBool("isWalk", false);
-                human.GetComponent<Animator>().SetBool("isRun", false);
-                human.GetComponent<Animator>().SetBool("isFly", true);
-            }
-
-        }
-        foreach (var human in humanController.rightHumanList)
+        foreach (var human in humanController._humanList)
         {
             if (human != null)
             {
@@ -244,7 +174,7 @@ public class PlayerController : MonoBehaviour
     public void PlayerStartPosition()
     {
         transform.position = new Vector3(0, 0.5f, 0);
-//        _xMovement = 0;
+        //        _xMovement = 0;
     }
     /*
     private void OyunuKazandi()

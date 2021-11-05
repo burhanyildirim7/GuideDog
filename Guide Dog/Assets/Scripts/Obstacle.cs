@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Obstacle : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class Obstacle : MonoBehaviour
         {
 
             humanController.DeleteHuman(other.gameObject);
+
+            NavMeshAgent agent = other.GetComponent<NavMeshAgent>();
+            agent.enabled = false;
 
             if (humanController.countHuman == 0)
             {

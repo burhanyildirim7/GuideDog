@@ -8,12 +8,12 @@ public class adamSayisiCanvas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.GetChild(0).GetChild(0).gameObject.GetComponent<Text>().text = FindObjectOfType<HumanController>().totalHumanList.Count.ToString();
+        transform.GetChild(0).GetChild(0).gameObject.GetComponent<Text>().text = FindObjectOfType<HumanController>()._humanList.Count.ToString();
     }
 }

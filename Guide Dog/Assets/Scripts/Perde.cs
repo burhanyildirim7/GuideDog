@@ -47,7 +47,7 @@ public class Perde : MonoBehaviour
 
     public void TotalHuman()
     {
-        totalHuman = humanController.centerHumanList.Count + humanController.leftHumanList.Count + humanController.rightHumanList.Count;
+        totalHuman = humanController._humanList.Count;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -59,7 +59,7 @@ public class Perde : MonoBehaviour
                 for (int i = 0; i < (islemyapilacakSayi - totalHuman); i++)
                 {
 
-                    humanController.sonEklenenInsan = false;
+                   // humanController.sonEklenenInsan = false;
                     humanController.AddHuman();
 
                 }
@@ -68,18 +68,12 @@ public class Perde : MonoBehaviour
           if(bolmeİslemi)
             {
                             
-                    int bolunecekIndexCenter = humanController.centerHumanList.Count / bolmeSayisi;
-                    int bolunecekIndexLeft = humanController.leftHumanList.Count / bolmeSayisi;
-                    int bolunecekIndexRight = humanController.rightHumanList.Count / bolmeSayisi;
+                    int bolunecekIndexCenter = humanController._humanList.Count / bolmeSayisi;
+                 
 
-                    if (humanController.centerHumanList.Count>0)
-                        humanController.DeleteHuman(humanController.centerHumanList[bolunecekIndexCenter]);
+                    if (humanController._humanList.Count>0)
+                        humanController.DeleteHuman(humanController._humanList[bolunecekIndexCenter]);
 
-                    if (humanController.leftHumanList.Count > 0)                      
-                        humanController.DeleteHuman(humanController.leftHumanList[bolunecekIndexLeft]);
-
-                    if (humanController.rightHumanList.Count > 0)
-                        humanController.DeleteHuman(humanController.rightHumanList[bolunecekIndexRight]);     
               
             }else if (cikarmaIslemi)
             {

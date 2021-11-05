@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     private int _levelElmasSayisi;
     private int _toplamElmasSayisi;
 
-    
+
 
     public LevelController levelController;
 
@@ -48,8 +48,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-       // Time.timeScale = 0.0f;
-       
+        // Time.timeScale = 0.0f;
+
     }
 
     void Start()
@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("ToplamElmasSayisi", _toplamElmasSayisi);
     }
 
-    
+
 
     public void StartGame()
     {
@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
         PuanObjesiScript._oyunSonuXDegeri = 0;
     }
 
-    public void LoseGame() 
+    public void LoseGame()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().DogIdle();
         _gameScreen.SetActive(false);
@@ -126,9 +126,9 @@ public class GameManager : MonoBehaviour
 
     }
 
-   
 
-    public void RestartGame() 
+
+    public void RestartGame()
     {
         _oyunSonu = false;
         _oyunSonuSevinme = false;
@@ -139,7 +139,7 @@ public class GameManager : MonoBehaviour
         _loseScreen.SetActive(false);
         playerController.PlayerStartPosition();
         _gameActive = false;
-        _gameScreen.SetActive(true);
+        _tapToStartScreen.SetActive(true);
 
 
     }
@@ -156,7 +156,7 @@ public class GameManager : MonoBehaviour
         levelController.LevelDegistir();
         _gameActive = false;
         _tapToStartScreen.SetActive(true);
-        
+
 
     }
 
@@ -179,6 +179,6 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("ToplamElmasSayisi", _toplamElmasSayisi);
     }
 
-  
-   
+
+
 }

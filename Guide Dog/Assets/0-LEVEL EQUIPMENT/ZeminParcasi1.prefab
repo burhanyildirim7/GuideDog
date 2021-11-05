@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4811585652421773418}
   - component: {fileID: 8772991094931533282}
   - component: {fileID: 1641834278696589131}
+  - component: {fileID: 4483230059883454871}
   m_Layer: 0
   m_Name: ZeminParcasi1
   m_TagString: Untagged
@@ -96,3 +97,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4483230059883454871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283272764903085703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc35adfbb8f9e4cb4b9024d105af8f47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

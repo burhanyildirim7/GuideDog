@@ -2823,6 +2823,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HumanCollectable (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 5890107868687314247, guid: 6c66b198b48c74b4f9bc43627cae6278,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c66b198b48c74b4f9bc43627cae6278, type: 3}
 --- !u!4 &8068057826214444997 stripped
