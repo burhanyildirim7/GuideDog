@@ -1,5 +1,6 @@
-Base path: '/Volumes/Unity/Unity Kaynak/2021.1.28f1/Unity.app/Contents', plugins path '/Volumes/Unity/Unity Kaynak/2021.1.28f1/Unity.app/Contents/PlaybackEngines'
+Base path: '/Volumes/UnityDosyalari/SistemDosyalari/2021.1.27f1/Unity.app/Contents', plugins path '/Volumes/UnityDosyalari/SistemDosyalari/2021.1.27f1/Unity.app/Contents/PlaybackEngines'
 Cmd: initializeCompiler
 
-Cmd: initializeCompiler
+Cmd: shutdown
 
+Quitting shader compiler process
