@@ -31,12 +31,12 @@ public class Perde : MonoBehaviour
         {
             islemyapilacakSayi = totalHuman * carpmaSayisi;
         }
-   
+
         else if (toplamaİslemi)
         {
             islemyapilacakSayi = totalHuman + toplamaSayisi;
         }
-      
+
     }
 
     private void Start()
@@ -54,33 +54,35 @@ public class Perde : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if(carpmaİslemi || toplamaİslemi)
+            if (carpmaİslemi || toplamaİslemi)
             {
                 for (int i = 0; i < (islemyapilacakSayi - totalHuman); i++)
                 {
 
-                   // humanController.sonEklenenInsan = false;
+                    // humanController.sonEklenenInsan = false;
                     humanController.AddHuman();
 
                 }
             }
-        
-          if(bolmeİslemi)
+
+            if (bolmeİslemi)
             {
-                            
-                    int bolunecekIndexCenter = humanController._humanList.Count / bolmeSayisi;
-                 
 
-                    if (humanController._humanList.Count>0)
-                        humanController.DeleteHuman(humanController._humanList[bolunecekIndexCenter]);
+                int bolunecekIndexCenter = (int)(humanController._humanList.Count / bolmeSayisi);
 
-              
-            }else if (cikarmaIslemi)
+                int silinecekkaraktersayisi = humanController._humanList.Count - bolunecekIndexCenter;
+
+                if (humanController._humanList.Count > 0)
+                    humanController.BolHuman(silinecekkaraktersayisi);
+
+
+            }
+            else if (cikarmaIslemi)
             {
                 humanController.CikarmaIslemi(cikarmaSayisi);
             }
 
-//            GameManager.instance.insanVarmi = true;
+            //            GameManager.instance.insanVarmi = true;
 
         }
     }

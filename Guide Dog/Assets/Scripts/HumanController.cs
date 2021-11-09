@@ -75,6 +75,27 @@ public class HumanController : MonoBehaviour
     }
 
 
+    public void BolHuman(int deleteHuman)
+    {
+
+
+        for (int i = 0; i < deleteHuman; i++)
+        {
+
+
+            //_humanList[j].transform.parent = null;
+
+            // _humanList.RemoveAt(j);
+
+            Destroy(_humanList[i]);
+
+
+
+
+        }
+
+    }
+
     public void ClearLists()
     {
 

@@ -1,24 +1,23 @@
 ﻿<Properties StartupConfiguration="{AE16AA28-944A-59EB-BA2E-AACC5175EE9E}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/HumanRunning.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/HumanController.cs">
     <Files>
-      <File FileName="Assets/Scripts/LevelController.cs" Line="121" Column="49" />
-      <File FileName="Assets/Scripts/HumanCollectable.cs" Line="5" Column="22" />
+      <File FileName="Assets/Scripts/Perde.cs" Line="76" Column="40" />
+      <File FileName="Assets/Scripts/LevelController.cs" />
+      <File FileName="Assets/Scripts/HumanCollectable.cs" />
       <File FileName="Assets/Scripts/GameManager.cs" />
-      <File FileName="Assets/Scripts/Perde.cs" Line="76" Column="1" />
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="13" Column="34" />
+      <File FileName="Assets/Scripts/PlayerController.cs" />
       <File FileName="Assets/Scripts/Singleton.cs" />
       <File FileName="Assets/Scripts/FinishLevel.cs" />
-      <File FileName="Assets/Scripts/HumanController.cs" Line="69" Column="48" />
-      <File FileName="Assets/Scripts/Obstacle.cs" Line="28" Column="69" />
+      <File FileName="Assets/Scripts/HumanController.cs" Line="78" Column="42" />
+      <File FileName="Assets/Scripts/Obstacle.cs" Line="26" Column="59" />
       <File FileName="Assets/Scripts/SwerveMovement.cs" />
       <File FileName="Assets/Scripts/CameraController.cs" />
       <File FileName="Assets/Scripts/BoneCollectable.cs" />
       <File FileName="Assets/Scripts/TemizlikRobotu.cs" />
-      <File FileName="Assets/Scripts/PuanObjesiScript.cs" />
+      <File FileName="Assets/Scripts/PuanObjesiScript.cs" Line="217" Column="42" />
       <File FileName="Assets/Scripts/KatsayilardakiScript.cs" />
       <File FileName="Assets/Scripts/RandomHumanCollectable.cs" />
-      <File FileName="Assets/adamSayisiCanvas.cs" Line="17" Column="146" />
-      <File FileName="Assets/Scripts/HumanRunning.cs" Line="5" Column="1" />
+      <File FileName="Assets/Scripts/HumanRunning.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -26,7 +25,7 @@
           <Node name="Guide Dog" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="HumanRunning.cs" selected="True" />
+                <Node name="HumanController.cs" selected="True" />
               </Node>
               <Node name="ToonPeople" expanded="True">
                 <Node name="scripts" expanded="True" />
@@ -39,7 +38,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d47d6485-9153-403d-83dd-736b683f5e0e" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d1c3273e-7f38-4a7a-ac7a-152a5a6e0a03" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

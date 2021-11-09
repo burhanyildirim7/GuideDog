@@ -28,6 +28,7 @@ TagManager:
   - X8
   - X5
   - PuanObjesi
+  - BitirmeCizgisi
   layers:
   - Default
   - TransparentFX

@@ -561,12 +561,12 @@ PrefabInstance:
     - target: {fileID: 1781487163520460219, guid: e2f90db4d13ff4a718e963cb221af6bc,
         type: 3}
       propertyPath: m_Text
-      value: "\xF75"
+      value: "\xF73"
       objectReference: {fileID: 0}
     - target: {fileID: 2415208288820862548, guid: e2f90db4d13ff4a718e963cb221af6bc,
         type: 3}
       propertyPath: m_Text
-      value: x5
+      value: x3
       objectReference: {fileID: 0}
     - target: {fileID: 2794817721708440413, guid: e2f90db4d13ff4a718e963cb221af6bc,
         type: 3}
@@ -635,6 +635,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4850540042394400090, guid: e2f90db4d13ff4a718e963cb221af6bc,
         type: 3}
+      propertyPath: carpmaSayisi
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850540042394400090, guid: e2f90db4d13ff4a718e963cb221af6bc,
+        type: 3}
       propertyPath: "carpma\u0130slemi"
       value: 1
       objectReference: {fileID: 0}
@@ -651,7 +656,7 @@ PrefabInstance:
     - target: {fileID: 4850540042460343289, guid: e2f90db4d13ff4a718e963cb221af6bc,
         type: 3}
       propertyPath: bolmeSayisi
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4850540042460343289, guid: e2f90db4d13ff4a718e963cb221af6bc,
         type: 3}

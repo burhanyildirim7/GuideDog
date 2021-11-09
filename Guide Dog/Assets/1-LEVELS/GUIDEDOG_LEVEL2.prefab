@@ -2278,6 +2278,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FinishLevel (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3236495800635248766, guid: 0f843a0e20182d0419bcf1fb59bea350,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4342445707078458367, guid: 0f843a0e20182d0419bcf1fb59bea350,
         type: 3}
       propertyPath: m_RootOrder
