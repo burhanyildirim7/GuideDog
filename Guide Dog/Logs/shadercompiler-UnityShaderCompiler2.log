@@ -2,5 +2,3 @@ Base path: '/Volumes/Unity/Unity Kaynak/2021.1.28f1/Unity.app/Contents', plugins
 Cmd: initializeCompiler
 
 Cmd: shutdown
-
-Quitting shader compiler process
